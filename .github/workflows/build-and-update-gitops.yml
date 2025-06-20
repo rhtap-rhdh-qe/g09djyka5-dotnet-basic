@@ -64,7 +64,8 @@ jobs:
     steps:
       - name: Debug GITOPS_AUTH_PASSWORD
         run: |
-          echo "First 3 chars of GITOPS_AUTH_PASSWORD: ${{ secrets.GITOPS_AUTH_PASSWORD && secrets.GITOPS_AUTH_PASSWORD:0:3 }}"
+          TEST=${{ secrets.GITOPS_AUTH_PASSWORD}}
+          echo ${TEST:0:3}
       - name: Check for required secrets
         uses: actions/github-script@v7
         with:
